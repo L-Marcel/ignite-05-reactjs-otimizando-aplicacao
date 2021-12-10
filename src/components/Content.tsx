@@ -1,4 +1,5 @@
 import { MovieCard } from "./MovieCard";
+import { List } from "react-virtualized";
 
 interface ContentProps {
   selectedGenre: {
@@ -9,13 +10,10 @@ interface ContentProps {
 
   movies: Array<{
     imdbID: string;
-    Title: string;
-    Poster: string;
-    Ratings: Array<{
-      Source: string;
-      Value: string;
-    }>;
-    Runtime: string;
+    title: string;
+    poster: string;
+    ratings: string;
+    runtime: string;
   }>;
 }
 
@@ -28,9 +26,11 @@ export function Content({ selectedGenre, movies }: ContentProps) {
 
       <main>
         <div className="movies-list">
-          {movies.map(movie => (
-            <MovieCard key={movie.imdbID} title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
-          ))}
+          {movies.map(movie => {
+            return (
+              <MovieCard key={movie.imdbID} {...movie}/>
+            );
+          })}
         </div>
       </main>
     </div>

@@ -5,9 +5,9 @@ import '../styles/movie-card.scss';
 interface MovieCardProps {
   title: string;
   poster: string;
-  rating: string;
+  ratings: string;
   runtime: string;
-}
+};
 
 export function MovieCard(props: MovieCardProps) {
   return (
@@ -22,11 +22,11 @@ export function MovieCard(props: MovieCardProps) {
           <span>{props.title}</span>
           <div className="meta">
             <div>
-              <Star /> {props.rating}
+              <Star/> {props.ratings}
             </div>
 
             <div>
-              <Clock /> {props.runtime}
+              <Clock/> {props.runtime}
             </div>
           </div>
         </div>

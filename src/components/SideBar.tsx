@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Button } from "./Button";
 
 interface SideBarProps {
@@ -10,7 +11,7 @@ interface SideBarProps {
   buttonClickCallback: (args: any) => void;
 }
 
-export function SideBar({
+function _SideBar({
   genres,
   selectedGenreId,
   buttonClickCallback
@@ -33,4 +34,8 @@ export function SideBar({
 
     </nav>
   )
-}
+};
+
+export const SideBar = memo(_SideBar, (prevProps, nextProps) => {
+  return Object.is(prevProps, nextProps);
+});
